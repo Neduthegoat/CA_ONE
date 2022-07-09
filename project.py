@@ -38,3 +38,12 @@ class Employee:
         prsi=0.04*gross_pay
         net_deductions=round(net_tax+prsi,2)
         net_pay=round(gross_pay-net_deductions,2)
+       #Returning the values in the specified format as given in the assignment
+
+        return {'name':self.FirstName + " " + self.LastName,
+              "Date":Date,"Regular Hours Worked":Reg_hours,'Overtime Hours Worked':overtime_hours,
+               "Regular Rate":self.HourlyRate,"Overtime Rate":overtime_rate,"Regular Pay":regular_pay,
+               "Overtime Pay":overtime_pay,
+               "Gross Pay":gross_pay,"Standard Rate Pay":standard_pay,"Higher Rate Pay":higher_pay,"Standard Tax":standard_tax,
+               "Higher Tax":higher_tax,"Total Tax":total_tax,"Tax Credit":self.TaxCredit,"Net Tax":net_tax,"PRSI":prsi,"Net Deductions":
+               net_deductions,"Net Pay":net_pay}
