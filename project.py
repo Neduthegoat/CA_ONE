@@ -47,3 +47,34 @@ class Employee:
                "Gross Pay":gross_pay,"Standard Rate Pay":standard_pay,"Higher Rate Pay":higher_pay,"Standard Tax":standard_tax,
                "Higher Tax":higher_tax,"Total Tax":total_tax,"Tax Credit":self.TaxCredit,"Net Tax":net_tax,"PRSI":prsi,"Net Deductions":
                net_deductions,"Net Pay":net_pay}
+
+        #Running tests
+    #Net pay cannot exceed gross pay
+    def testNetLessEqualGross(self):
+        e=Employee(12345,"Green","joe",37,16,1.5,72,710)
+        pi=e.computePayment(1,'31/10/2021')
+        return self.assertLessEqual(pi['NetPay'],pi['GrossPay'])
+    
+    #Overtime pay or overtime hours cannot be negative
+    def testOvertimePayNegative(self):
+        e=Employee(12345,"Green","joe",37,16,1.5,72,710)
+        pi=e.computePayment(1,'31/10/2021')
+        return self.assertLess(0,pi['Overtime Pay'])
+    
+    #Regular Hours Worked cannot exceed hours worked
+    def testRegHoursGreaterHoursWorked(self):
+        e=Employee(12345,"Green","joe",37,16,1.5,72,710)
+        pi=e.computePayment(1,'31/10/2021')
+        return self.assertLess(pi['Regular Hours Worked'],pi['Regular Hours worked']+pi['Overtime Hours Worked'])
+    
+    #Higher Tax cannot be negative
+    def testHigherTaxNegative(self):
+        e=Employee(12345,"Green","joe",37,16,1.5,72,710)
+        pi=e.computePayment(1,'31/10/2021')
+        return self.assertLess(0,pi['Higher Tax'])
+    
+    #Net Pay cannot be Negative
+    def NetPayNegative(self):
+        e=Employee(12345,"Green","joe",37,16,1.5,72,710)
+        pi=e.computePayment(1,'31/10/2021')
+        return self.assertLess(0,pi['Net Pay'])
