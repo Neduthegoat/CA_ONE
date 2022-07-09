@@ -78,3 +78,7 @@ class Employee:
         e=Employee(12345,"Green","joe",37,16,1.5,72,710)
         pi=e.computePayment(1,'31/10/2021')
         return self.assertLess(0,pi['Net Pay'])
+       
+#Example
+jg=Employee(12345,"Green","joe",37,16,1.5,72,710)
+print(jg.computePayment(42,'31/10/2021'))
