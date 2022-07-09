@@ -11,3 +11,5 @@ class Employee:
         self.OTMultiple=OTMultiple
         self.TaxCredit=TaxCredit
         self.StandardBand=StandardBand
+    #Creating the `computePayment` method     
+    def computePayment(self,TotalTime,Date):
